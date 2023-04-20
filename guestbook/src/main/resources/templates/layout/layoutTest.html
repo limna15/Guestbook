@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="~{/layout/basic.html::setContent(~{::#con})}">
+
+
+<span id="con">
+이 내용이 아까 거기(index.html)에 나오게 만들거임
+</span>
+
+<!--
+교재에서는 이렇게 씀, 위에 setContent(~{::content})로 써야함
+<th:block th:fragment="content">
+  <h1>제목</h1>
+  이 내용이 아까 거기에 나오게 만듦.
+</th:block>
+-->
+</th:block>
+</html>

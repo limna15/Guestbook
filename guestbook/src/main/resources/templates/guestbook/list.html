@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="~{/layout/basic.html::setContent(~{this::content})}">
+
+<!-- 이렇게 쓰려면 위에 함수 setContent에 (~{::#con})로 써야함 
+<span id="con">
+이 내용이 아까 거기(index.html)에 나오게 만들거임
+</span>
+-->
+
+<th:block th:fragment="content">
+  <h1>방명록 목록</h1>
+  이 내용이 아까 거기에 나오게 만듦.
+</th:block>
+
+</th:block>
+</html>
