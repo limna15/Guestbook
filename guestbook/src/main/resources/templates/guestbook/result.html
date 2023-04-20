@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="~{/layout/basic.html::setContent(~{this::content})}">
+
+<!-- 이렇게 쓰려면 위에 함수 setContent에 (~{::#con})로 써야함 
+<span id="con">
+이 내용이 아까 거기(index.html)에 나오게 만들거임
+</span>
+-->
+
+<th:block th:fragment="content">
+<ul>
+ <li th:each="dto:${list}">[[${dto}]]</li>
+</ul>
+<hr>
+<ul>
+ <li th:each="dto:${list}">[[${dto.gno}]], [[${dto.regDate}]], [[${#temporals.format(dto.regDate,'yyyy-MM-dd E요일 hh:mm:ss')}]]</li>
+</ul>
+</th:block>
+
+</th:block>
+</html>

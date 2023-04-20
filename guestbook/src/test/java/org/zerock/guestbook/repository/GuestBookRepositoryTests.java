@@ -77,16 +77,41 @@ public class GuestBookRepositoryTests {
 		//Where 조건을 셋팅하기 위한 객체
 		BooleanBuilder builder= new BooleanBuilder();
 		
-		//원하는 Where절 조건 셋팅
+		//원하는 Where절 조건 셋팅(제목 or 작성자 or 내용)
 		BooleanExpression expression= qGuestBook.title.contains("9");
 		BooleanExpression expression2= qGuestBook.content.contains("8");
+		BooleanExpression expression3= qGuestBook.writer.contains("7");
+		expression.or(expression2).or(expression3);
 		
 		//Where조건 세팅
-		builder.and(expression).and(expression2);
+		builder.and(expression);
 		
 		//실행                                       //query 인터페이스를 통해서 추가된 메소드 
 		Page<GuestBook> list= guestBookRepository.findAll(builder, pageable);
 		
 		list.forEach(x -> System.out.println(x));
+	}
+	
+	@Test
+	public void delete() {
+		guestBookRepository.deleteById(300);
+	}
+	
+	@Test
+	public void delete1() {
+		//1~299까지만 남겨두는 프로그램을 만들어서 동작시키기
+		guestBookRepository.del300();
+	}
+	
+	@Test
+	public void delete2() {
+		//1~295까지만 남겨두는 프로그램을 만들어서 동작시키기
+		guestBookRepository.del300two();
+	}
+	
+	@Test
+	public void quiz1() {
+		Pageable pageable= PageRequest.of(0,3);
+		guestBookRepository.findAll(pageable).get().forEach(x->System.out.println(x));
 	}
 }

@@ -9,9 +9,11 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import jakarta.persistence.Column;
 import jakarta.persistence.EntityListeners;
 import jakarta.persistence.MappedSuperclass;
+import lombok.Getter;
 
 @MappedSuperclass //테이블생성을 안함(부모클래스로 사용하겠다는 의미)
 @EntityListeners(value= {AuditingEntityListener.class}) //GuestbookApplication에 @EnableJpaAuditing을 넣어줘야 활성화가 됨
+@Getter
 public class BaseEntity {
 	//작성시간
 	@CreatedDate //persistence context에 entity(객체)가 생성될 때를 의미
